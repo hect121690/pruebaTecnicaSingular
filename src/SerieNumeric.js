@@ -1,12 +1,13 @@
 export default class SerieNumeric {
-  // Cache para fibonacci
-  static _fibCache = {};
+  // Array con los primeros 20 números de Fibonacci (1-indexado)
+  static fibCache = [
+    0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55,
+    89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946
+  ];
 
   static fibonacci(n) {
-    if (n <= 2) return 1;
-    if (this._fibCache[n]) return this._fibCache[n];
-    this._fibCache[n] = this.fibonacci(n - 1) + this.fibonacci(n - 2);
-    return this._fibCache[n];
+    if (n < 1 || n > 20) throw new Error("n debe estar entre 1 y 20");
+    return this.fibCache[n];
   }
 
   static triangular(n) {
