@@ -41,4 +41,9 @@ export default class SerieNumeric {
 
     return { resultado, pasos };
   }
+
+  static calcularTermino(n) {
+    return this.calcularTerminoConPasos(n).resultado;
+  }
+
 }

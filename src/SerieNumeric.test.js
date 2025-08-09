@@ -1,6 +1,6 @@
-import SerieNumerica from './SerieNumeric';
+import SerieNumeric from './SerieNumeric';
 
-describe('SerieNumerica calcularTermino', () => {
+describe('SerieNumeric calcularTermino', () => {
   test.each([
     [1, 1],
     [2, -2],
@@ -12,7 +12,7 @@ describe('SerieNumerica calcularTermino', () => {
     [8, -32],
     [9, -33],
     [10, -26],
-  ])('calcularTermino(%i) debe ser %i', (n, expected) => {
-    expect(SerieNumerica.calcularTermino(n)).toBe(expected);
+  ])('Prueba (%i) debe ser %i', (n, expected) => {
+    expect(SerieNumeric.calcularTermino(n)).toBe(expected);
   });
 });
