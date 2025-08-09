@@ -1,0 +1,43 @@
+export default class SerieNumeric {
+  // Cache para fibonacci
+  static _fibCache = {};
+
+  static fibonacci(n) {
+    if (n <= 2) return 1;
+    if (this._fibCache[n]) return this._fibCache[n];
+    this._fibCache[n] = this.fibonacci(n - 1) + this.fibonacci(n - 2);
+    return this._fibCache[n];
+  }
+
+  static triangular(n) {
+    return (n * (n + 1)) / 2;
+  }
+
+  static primo(n) {
+    const primos = [
+      2, 3, 5, 7, 11, 13, 17, 19, 23, 29,
+      31, 37, 41, 43, 47, 53, 59, 61, 67, 71
+    ];
+    if (n < 1 || n > 20) throw new Error("n para primo debe estar entre 1 y 20");
+    return primos[n - 1];
+  }
+
+  static calcularTerminoConPasos(n) {
+    if (n < 1 || n > 20) throw new Error("n debe estar entre 1 y 20");
+
+    const fib = this.fibonacci(n);
+    const tri = this.triangular(n);
+    const pri = this.primo(n);
+    const resultado = fib - 2 * tri + pri;
+
+    const pasos = [
+      `fibonacci(${n}) = ${fib}`,
+      `triangular(${n}) = ${tri}`,
+      `primo(${n}) = ${pri}`,
+      `serie(${n}) = fibonacci(${n}) - 2*triangular(${n}) + primo(${n})`,
+      `serie(${n}) = ${fib} - 2*${tri} + ${pri} = ${resultado}`
+    ];
+
+    return { resultado, pasos };
+  }
+}
